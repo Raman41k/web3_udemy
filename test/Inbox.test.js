@@ -7,7 +7,7 @@ const web3 = new Web3(ganache.provider());
 
 let accounts;
 let inbox;
-const INITIAL_STRING = 'Hi there!';
+const INITIAL_STRING = 'Hi there!!!';
 
 beforeEach(async () => {
     // Get a list of all accounts
