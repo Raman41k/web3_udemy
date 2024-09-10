@@ -5,7 +5,9 @@ require('dotenv').config();
 
 const provider = new HDWalletProvider(
     process.env.MNEMONIC_PHRASE,
-    process.env.INFURA_HOLESKY_API_KEY
+    process.env.INFURA_HOLESKY_API_KEY,
+    0,
+    1
 );
 const web3 = new Web3(provider);
 
@@ -19,7 +21,7 @@ const deploy = async () => {
             .deploy({ data: bytecode, arguments: ['Hello again!'] })
             .send({ gas: '1000000', from: accounts[0] });
     
-        console.log('contract', result);
+        console.log('contract', result.options.address);
         provider.engine.stop();
     } catch (e) {
         console.log(e)
